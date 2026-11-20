@@ -888,13 +888,22 @@
   <div class="toast" id="toast"></div>
 
   <script>
+    function hashPin(str) {
+      let h = 0x811c9dc5;
+      for (let i = 0; i < str.length; i++) {
+        h ^= str.charCodeAt(i);
+        h = Math.imul(h, 0x01000193) >>> 0;
+      }
+      return h.toString(16).padStart(8, '0');
+    }
+
     const DEFAULT_SETTINGS = {
       waPrice: '966581504497',
       waOrder: '966504258930',
       phoneExtra: '+966 50 430 4466',
       landline: '+966 11 458 5732',
       webhookUrl: '',
-      adminPin: '1234'
+      adminPinHash: '9dff1a09'
     };
 
     const DEFAULT_PRODUCTS = [
@@ -989,7 +998,7 @@
         orderIdLabel: 'رقم الطلب:',
         openWaOrderBtn: '💬 إرسال تفاصيل الطلب عبر الواتساب الآن',
         adminTitle: 'لوحة تحكم مؤسسة روائع الأبراج',
-        pinPrompt: 'أدخل رمز الإدارة (PIN الافتراضي: 1234)',
+        pinPrompt: 'أدخل رمز الإدارة السري',
         pinBtn: 'دخول'
       },
       en: {
@@ -1052,13 +1061,20 @@
         orderIdLabel: 'Order ID:',
         openWaOrderBtn: '💬 Send Order Details on WhatsApp Now',
         adminTitle: 'Rawaea Al-Abraj Admin Panel',
-        pinPrompt: 'Enter Admin PIN (Default: 1234)',
+        pinPrompt: 'Enter Admin PIN',
         pinBtn: 'Login'
       }
     };
 
     let lang = localStorage.getItem('ra_lang') || 'ar';
-    let settings = JSON.parse(localStorage.getItem('ra_settings') || 'null') || { ...DEFAULT_SETTINGS };
+    let savedSettings = JSON.parse(localStorage.getItem('ra_settings') || 'null');
+    let settings = savedSettings ? { ...DEFAULT_SETTINGS, ...savedSettings } : { ...DEFAULT_SETTINGS };
+    if (!settings.adminPinHash || settings.adminPin) {
+      settings.adminPinHash = DEFAULT_SETTINGS.adminPinHash;
+      delete settings.adminPin;
+      localStorage.setItem('ra_settings', JSON.stringify(settings));
+    }
+
     let products = JSON.parse(localStorage.getItem('ra_products') || 'null') || [...DEFAULT_PRODUCTS];
     let cart = JSON.parse(localStorage.getItem('ra_cart') || '[]');
     let orders = JSON.parse(localStorage.getItem('ra_orders') || '[]');
@@ -1441,7 +1457,7 @@
           <form onsubmit="checkAdminPin(event)" style="max-width:340px;margin:20px auto;text-align:center;">
             <div class="form-group">
               <label>${TEXT[lang].pinPrompt}</label>
-              <input type="password" id="pinInput" required dir="ltr" style="text-align:center;font-size:1.2rem;letter-spacing:4px;" />
+              <input type="password" id="pinInput" required dir="ltr" autocomplete="off" style="text-align:center;font-size:1.2rem;letter-spacing:4px;" />
             </div>
             <button type="submit" class="btn-primary">${TEXT[lang].pinBtn}</button>
           </form>
@@ -1520,7 +1536,7 @@
             <div class="form-group"><label>رقم واتساب استلام الطلبات (مع رمز الدولة بدون +)</label><input id="setWaOrder" dir="ltr" value="${settings.waOrder}" /></div>
             <div class="form-group"><label>رقم جوال إضافي</label><input id="setPhoneExtra" dir="ltr" value="${settings.phoneExtra}" /></div>
             <div class="form-group"><label>الهاتف الثابت</label><input id="setLandline" dir="ltr" value="${settings.landline}" /></div>
-            <div class="form-group"><label>رمز PIN لوحة التحكم</label><input id="setPin" dir="ltr" value="${settings.adminPin}" /></div>
+            <div class="form-group"><label>تغيير رمز PIN لوحة التحكم (اختياري)</label><input type="password" id="setPin" dir="ltr" placeholder="اتركه فارغاً للإبقاء على الرمز الحالي" autocomplete="new-password" /></div>
             <button type="submit" class="btn-primary">حفظ الإعدادات</button>
           </form>
         `;
@@ -1529,7 +1545,8 @@
 
     function checkAdminPin(e) {
       e.preventDefault();
-      if (document.getElementById('pinInput').value === settings.adminPin) {
+      const entered = document.getElementById('pinInput').value.trim();
+      if (hashPin(entered) === settings.adminPinHash) {
         adminLoggedIn = true;
         renderAdmin();
       } else {
@@ -1585,7 +1602,10 @@
       settings.waOrder = document.getElementById('setWaOrder').value.trim();
       settings.phoneExtra = document.getElementById('setPhoneExtra').value.trim();
       settings.landline = document.getElementById('setLandline').value.trim();
-      settings.adminPin = document.getElementById('setPin').value.trim() || '1234';
+      const newPin = document.getElementById('setPin').value.trim();
+      if (newPin) {
+        settings.adminPinHash = hashPin(newPin);
+      }
       saveState();
       applyLanguage();
       showToast('تم حفظ الإعدادات بنجاح');
