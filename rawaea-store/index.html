@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مؤسسة روائع الأبراج للتجارة | Rawaea Al-Abraj Trading Est.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #0e131d;
+      --bg-darker: #080b12;
+      --bg-card-dark: #161d2b;
+      --bg-light: #faf8f5;
+      --bg-white: #ffffff;
+      --gold: #d97706;
+      --gold-light: #f59e0b;
+      --gold-soft: #fef3c7;
+      --bronze: #92400e;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border: #e5e7eb;
+      --wa-green: #16a34a;
+      --wa-green-hover: #15803d;
+      --danger: #dc2626;
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    html[dir="ltr"] body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    input, select, textarea { font-family: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    /* Top Announcement Bar */
+    .top-bar {
+      background: linear-gradient(90deg, #b45309, #d97706, #b45309);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      text-align: center;
+    }
+    .top-bar a { text-decoration: underline; margin: 0 4px; }
+
+    /* Header */
+    header {
+      background: var(--bg-dark);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-svg {
+      width: 50px;
+      height: 50px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 3px 8px rgba(245, 158, 11, 0.35));
+    }
+
+    .brand-text h1 {
+      font-size: 1.18rem;
+      font-weight: 900;
+      color: #fbbf24;
+      line-height: 1.25;
+    }
+
+    .brand-text p {
+      font-size: 0.78rem;
+      color: #cbd5e1;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-lang {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: 0.2s;
+    }
+    .btn-lang:hover { background: rgba(245, 158, 11, 0.2); border-color: #f59e0b; }
+
+    .btn-cart {
+      background: linear-gradient(135deg, #d97706, #f59e0b);
+      color: #0e131d;
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+      transition: 0.2s;
+    }
+    .btn-cart:hover { transform: translateY(-1px); }
+
+    .cart-badge {
+      background: #0e131d;
+      color: #fbbf24;
+      min-width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 0 6px;
+    }
+
+    /* Hero */
+    .hero {
+      background: radial-gradient(circle at top right, #1f2937 0%, #0e131d 55%, #080b12 100%);
+      color: #fff;
+      padding: 48px 0 42px;
+      position: relative;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .hero-inner {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.14);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      color: #fcd34d;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.7rem, 4vw, 2.7rem);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 14px;
+      background: linear-gradient(180deg, #ffffff 30%, #fcd34d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 1.02rem;
+      margin-bottom: 24px;
+    }
+
+    .search-box {
+      position: relative;
+      max-width: 680px;
+      margin: 0 auto 22px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 15px 48px 15px 18px;
+      border-radius: 14px;
+      border: 2px solid rgba(245, 158, 11, 0.4);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.2s;
+    }
+    html[dir="ltr"] .search-box input { padding: 15px 18px 15px 48px; }
+    .search-box input::placeholder { color: #94a3b8; }
+    .search-box input:focus { border-color: #f59e0b; background: rgba(255,255,255,0.13); }
+
+    .search-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 16px;
+      font-size: 1.15rem;
+      color: #fbbf24;
+      pointer-events: none;
+    }
+    html[dir="ltr"] .search-icon { right: auto; left: 16px; }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.86rem;
+      color: #e2e8f0;
+    }
+    .hero-badges span {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 6px 12px;
+      border-radius: 10px;
+    }
+
+    /* Filters Section */
+    .filters-section {
+      padding: 26px 0 12px;
+    }
+
+    .filter-label {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--bronze);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .pills-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      padding: 8px 15px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1.5px solid var(--border);
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: 0.2s;
+    }
+    .pill:hover { border-color: var(--gold); color: var(--gold); }
+    .pill.active {
+      background: var(--bg-dark);
+      color: #fbbf24;
+      border-color: var(--gold);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    }
+
+    .catalog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .results-count {
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .clear-btn {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: underline;
+    }
+
+    /* Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding-bottom: 42px;
+    }
+
+    .product-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold-light);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .brand-tag {
+      background: #111827;
+      color: #fbbf24;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+
+    .cat-tag {
+      background: var(--gold-soft);
+      color: var(--bronze);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+
+    .part-visual {
+      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+      border: 1px dashed #cbd5e1;
+      border-radius: 12px;
+      padding: 18px 12px;
+      text-align: center;
+      margin-bottom: 14px;
+      cursor: pointer;
+    }
+    .part-visual .part-icon {
+      font-size: 2.2rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .part-visual .oem-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #0f172a;
+      direction: ltr;
+    }
+
+    .product-title {
+      font-size: 1.04rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .product-specs {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .card-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .btn-wa {
+      background: var(--wa-green);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+    .btn-wa:hover { background: var(--wa-green-hover); }
+
+    .card-sub-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .btn-add {
+      background: var(--bg-dark);
+      color: #fbbf24;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.86rem;
+      transition: 0.2s;
+    }
+    .btn-add:hover { background: #1e293b; }
+
+    .btn-copy {
+      background: #f3f4f6;
+      color: #374151;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border: 1px solid #d1d5db;
+    }
+    .btn-copy:hover { background: #e5e7eb; }
+
+    /* Branches & Contact Section */
+    .info-section {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 44px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.55rem;
+      font-weight: 900;
+      margin-bottom: 26px;
+      color: var(--bg-dark);
+    }
+
+    .branches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+    }
+
+    .info-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .info-card h3 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--bronze);
+      margin-bottom: 10px;
+    }
+
+    .info-card p, .info-card li {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .info-card ul { list-style: none; }
+
+    .phone-link {
+      display: inline-block;
+      font-weight: 800;
+      color: var(--bg-dark);
+      direction: ltr;
+      margin-top: 4px;
+    }
+    .phone-link:hover { color: var(--gold); }
+
+    /* Footer */
+    footer {
+      background: var(--bg-darker);
+      color: #cbd5e1;
+      padding: 32px 0 24px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-admin {
+      background: rgba(255,255,255,0.07);
+      color: #94a3b8;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+    .btn-admin:hover { color: #fbbf24; border-color: #fbbf24; }
+
+    /* Modals & Drawers - STRICTLY HIDDEN BY DEFAULT */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 11, 18, 0.72);
+      z-index: 90;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      backdrop-filter: blur(3px);
+    }
+
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 11, 18, 0.68);
+      z-index: 80;
+      display: none;
+      justify-content: flex-end;
+    }
+    html[dir="rtl"] .drawer-overlay { justify-content: flex-start; }
+
+    .drawer {
+      background: #fff;
+      width: 100%;
+      max-width: 430px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -8px 0 30px rgba(0,0,0,0.25);
+    }
+
+    .modal-box {
+      background: #fff;
+      width: 100%;
+      max-width: 620px;
+      max-height: 90vh;
+      border-radius: 16px;
+      overflow-y: auto;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      background: var(--bg-dark);
+      color: #fff;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    .modal-header h3 { font-size: 1.08rem; font-weight: 800; color: #fbbf24; }
+
+    .close-btn {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .close-btn:hover { background: var(--danger); }
+
+    .modal-body { padding: 20px; flex: 1; overflow-y: auto; }
+
+    .cart-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f3f4f6;
+      padding: 4px 8px;
+      border-radius: 8px;
+    }
+    .qty-controls button {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid #d1d5db;
+      font-weight: 800;
+    }
+
+    .drawer-footer {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+      background: #f9fafb;
+    }
+
+    .price-note {
+      background: var(--gold-soft);
+      color: var(--bronze);
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 0.94rem;
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .btn-primary {
+      width: 100%;
+      background: linear-gradient(135deg, #d97706, #f59e0b);
+      color: #0e131d;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-weight: 900;
+      font-size: 0.96rem;
+      text-align: center;
+      display: inline-block;
+    }
+    .btn-primary:hover { filter: brightness(1.05); }
+
+    .admin-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .admin-tab {
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      background: #f3f4f6;
+      color: #374151;
+    }
+    .admin-tab.active { background: var(--bg-dark); color: #fbbf24; }
+
+    .code-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 12px;
+      border-radius: 10px;
+      font-family: monospace;
+      font-size: 0.78rem;
+      direction: ltr;
+      text-align: left;
+      overflow-x: auto;
+      white-space: pre;
+      margin: 10px 0;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #111827;
+      color: #fbbf24;
+      padding: 11px 20px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      z-index: 200;
+      display: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      border: 1px solid rgba(251, 191, 36, 0.4);
+    }
+
+    @media (max-width: 640px) {
+      .brand-text h1 { font-size: 1rem; }
+      .hero { padding: 34px 0 28px; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar" id="topBar"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrap">
+      <div class="brand">
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Z Logo">
+          <defs>
+            <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fde68a"/>
+              <stop offset="50%" stop-color="#d97706"/>
+              <stop offset="100%" stop-color="#78350f"/>
+            </linearGradient>
+            <linearGradient id="metalBg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1f2937"/>
+              <stop offset="100%" stop-color="#090d16"/>
+            </linearGradient>
+            <linearGradient id="chromeZ" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="50%" stop-color="#cbd5e1"/>
+              <stop offset="100%" stop-color="#f59e0b"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="46" fill="url(#metalBg)" stroke="url(#goldRing)" stroke-width="6"/>
+          <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(251,191,36,0.35)" stroke-width="1.5"/>
+          <path d="M29 31 H71 V41 L43 61 H71 V71 H29 V61 L57 41 H29 Z" fill="url(#chromeZ)"/>
+        </svg>
+        <div class="brand-text">
+          <h1 id="brandTitle"></h1>
+          <p id="brandSubtitle"></p>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn-lang" id="langToggleBtn" onclick="toggleLanguage()"></button>
+        <button class="btn-cart" onclick="openCart()">
+          <span>🛒</span>
+          <span id="cartBtnLabel"></span>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-pill" id="heroPill"></div>
+      <h2 id="heroTitle"></h2>
+      <p id="heroDesc"></p>
+
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" oninput="renderCatalog()" />
+      </div>
+
+      <div class="hero-badges" id="heroBadges"></div>
+    </div>
+  </section>
+
+  <!-- Filters & Catalog -->
+  <main class="container filters-section">
+    <span class="filter-label" id="brandFilterLabel"></span>
+    <div class="pills-row" id="brandPills"></div>
+
+    <span class="filter-label" id="catFilterLabel"></span>
+    <div class="pills-row" id="catPills"></div>
+
+    <div class="catalog-header">
+      <div class="results-count" id="resultsCount"></div>
+      <button class="clear-btn" id="clearFiltersBtn" onclick="resetFilters()" style="display:none;"></button>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+  </main>
+
+  <!-- Branches & Contact Section -->
+  <section class="info-section">
+    <div class="container">
+      <h2 class="section-title" id="branchesSectionTitle"></h2>
+      <div class="branches-grid" id="branchesGrid"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div id="footerCopy"></div>
+      <button class="btn-admin" id="adminOpenBtn" onclick="openAdmin()"></button>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer (Hidden on load) -->
+  <div class="drawer-overlay" id="cartOverlay" style="display: none;" onclick="if(event.target===this) closeCart()">
+    <div class="drawer">
+      <div class="modal-header">
+        <h3 id="cartDrawerTitle"></h3>
+        <button class="close-btn" onclick="closeCart()">×</button>
+      </div>
+      <div class="modal-body" id="cartItemsContainer"></div>
+      <div class="drawer-footer">
+        <div class="price-note" id="cartPriceNote"></div>
+        <button class="btn-primary" id="proceedCheckoutBtn" onclick="openCheckout()"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal (Hidden on load) -->
+  <div class="overlay" id="quickViewOverlay" style="display: none;" onclick="if(event.target===this) closeQuickView()">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="qvTitle"></h3>
+        <button class="close-btn" onclick="closeQuickView()">×</button>
+      </div>
+      <div class="modal-body" id="qvBody"></div>
+    </div>
+  </div>
+
+  <!-- Checkout / Pickup Modal (Hidden on load) -->
+  <div class="overlay" id="checkoutOverlay" style="display: none;" onclick="if(event.target===this) closeCheckout()">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="checkoutTitle"></h3>
+        <button class="close-btn" onclick="closeCheckout()">×</button>
+      </div>
+      <div class="modal-body" id="checkoutBody"></div>
+    </div>
+  </div>
+
+  <!-- Admin Panel Modal (Hidden on load) -->
+  <div class="overlay" id="adminOverlay" style="display: none;" onclick="if(event.target===this) closeAdmin()">
+    <div class="modal-box" style="max-width: 760px;">
+      <div class="modal-header">
+        <h3 id="adminModalTitle"></h3>
+        <button class="close-btn" onclick="closeAdmin()">×</button>
+      </div>
+      <div class="modal-body" id="adminBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const DEFAULT_SETTINGS = {
+      waPrice: '966581504497',
+      waOrder: '966504258930',
+      phoneExtra: '+966 50 430 4466',
+      landline: '+966 11 458 5732',
+      webhookUrl: '',
+      adminPin: '1234'
+    };
+
+    const DEFAULT_PRODUCTS = [
+      { id: 1, oem: '9493200302-03', brand: 'actros', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة خلفية مرسيدس أكتروس (رمادية)', nameEn: 'Mercedes Actros Rear Leaf Spring (Grey)', specsAr: 'ريشة سستة عالية التحمل مطابقة للمواصفات الألمانية — متوفرة بالقطعة والربطة', specsEn: 'Heavy-duty grey leaf spring blade — available per piece or bundle' },
+      { id: 2, oem: '9413250150', brand: 'actros', category: 'bushings', icon: '⭕', nameAr: 'جلبة سستة أمامية مرسيدس أكتروس', nameEn: 'Mercedes Actros Front Leaf Spring Bushing', specsAr: 'جلبة صلب معالجة حرارياً لمقاومة التآكل — أكتروس أمامي', specsEn: 'Heat-treated steel front leaf spring bushing for Actros' },
+      { id: 3, oem: '000 326 2481', brand: 'actros', category: 'bushings', icon: '⚫', nameAr: 'جلبة عمود توازن مرسيدس أكتروس', nameEn: 'Mercedes Actros Stabilizer Bar Bushing', specsAr: 'مطاط صناعي مقوى لامتصاص الصدمات والاهتزازات', specsEn: 'Reinforced industrial rubber stabilizer bushing' },
+      { id: 4, oem: '000 323 7985', brand: 'actros', category: 'bushings', icon: '⚫', nameAr: 'جلبة مساعد وتعليق مرسيدس أكتروس', nameEn: 'Mercedes Actros Suspension & Shock Bushing', specsAr: 'جلبة تعليق أكتروس متوفرة مع فئة 000 323 7985/S و 000 323 8185', specsEn: 'Heavy-duty suspension bushing (also fits 000 323 7985/S)' },
+      { id: 5, oem: '942 317 1812', brand: 'actros', category: 'bushings', icon: '⚫', nameAr: 'جلبة كابينة / تعليق مرسيدس', nameEn: 'Mercedes Cab / Suspension Bushing', specsAr: 'معدن ومطاط مقوى للخدمة الشاقة على الطرق الوعرة', specsEn: 'Bonded steel-and-rubber bushing for heavy-duty service' },
+      { id: 6, oem: 'SY412D-A6', brand: 'chinese', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة خلفية شاحنات صيني تراك / ساني', nameEn: 'SANY / Chinese Truck Rear Leaf Spring', specsAr: 'ريشة خلفية رئيسية مخصصة لشاحنات ساني والصيني تراك', specsEn: 'Heavy-duty rear leaf spring for SANY & Chinese trucks' },
+      { id: 7, oem: '500-432-1', brand: 'chinese', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة سوداء رقم 1 (ربطات مستودع)', nameEn: 'Black Leaf Spring #1 (Warehouse Bundles)', specsAr: 'سست سوداء مقوسة مطلية ضد الصدأ — متوفرة بكميات فورية', specsEn: 'Anti-rust coated curved black leaf springs — bulk stock ready' },
+      { id: 8, oem: '500-432-2', brand: 'chinese', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة سوداء رقم 2', nameEn: 'Black Leaf Spring #2', specsAr: 'الريشة الثانية الداعمة لطقم السست الخلفية', specsEn: 'Secondary support leaf spring blade' },
+      { id: 9, oem: '89-707-32240-01', brand: 'isuzu', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة رئيسية بالعين — إيسوزو', nameEn: 'Isuzu Main Leaf Spring with Eye', specsAr: 'ريشة رئيسية بالعيون للشاحنات اليابانية وإيسوزو — رقم 01', specsEn: 'Main leaf spring with rolled eyes for Isuzu trucks (#01)' },
+      { id: 10, oem: '89-707-32240-02', brand: 'isuzu', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة ثانية بالعين — إيسوزو', nameEn: 'Isuzu Secondary Leaf Spring with Eye', specsAr: 'ريشة مساعدة بالعين مطابقة لرقم 02', specsEn: 'Secondary rolled-eye leaf spring (#02)' },
+      { id: 11, oem: '96-1111-235-02', brand: 'mitsubishi', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة شاحنات ميتسوبيشي فوسو', nameEn: 'Mitsubishi Fuso Leaf Spring', specsAr: 'صلب مرن عالي التحمل لشاحنات ميتسوبيشي والنقل المتوسط والثقيل', specsEn: 'High-tensile spring steel blade for Mitsubishi Fuso' },
+      { id: 12, oem: '303-025-1', brand: 'bpw', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة تريلا ومقطورة (رمادية)', nameEn: 'Trailer Leaf Spring Blade (Grey)', specsAr: 'ريشة سستة سميكة لمحاور المقطورات والتريلات — متوفر أيضاً 303-410-1', specsEn: 'Thick trailer axle leaf spring (303-410-1 also available)' },
+      { id: 13, oem: 'Z-UBOLT-10.9', brand: 'actros', category: 'bolts', icon: '🔧', nameAr: 'قفزان ومسامير سست علامة Z (صلابة 10.9)', nameEn: 'Z-Brand Leaf Spring U-Bolts (Grade 10.9)', specsAr: 'قفزان أصلية بعلامة Z صلابة 10.9 لجميع الشاحنات والمقطورات', specsEn: 'Signature Z-Brand Grade 10.9 U-bolts for trucks & trailers' },
+      { id: 14, oem: 'SAMPA-225x24', brand: 'man', category: 'bolts', icon: '🔧', nameAr: 'طقم مسمار تعليق SAMPA (طول 225 × قطر 24 مم)', nameEn: 'SAMPA Suspension Bolt Kit (225mm x 24mm)', specsAr: 'مسمار صلب مع جلبة ووردة وصامولة — متوافق مع مان وأكتروس', specsEn: 'Hardened bolt with bushing, washer & nut — MAN / Actros' },
+      { id: 15, oem: 'SAMPA-HEX-HD', brand: 'volvo', category: 'bolts', icon: '🔧', nameAr: 'مسمار تثبيت بكتف مجلفن SAMPA', nameEn: 'SAMPA Galvanized Flange Hex Bolt', specsAr: 'مسمار تثبيت للخدمة الشاقة مقاوم للصدأ — مخزون SAMPA فوري', specsEn: 'Heavy-duty corrosion-resistant flange bolt — SAMPA stock' },
+      { id: 16, oem: 'KERB-5D-12T', brand: 'bpw', category: 'hubs', icon: '⚙️', nameAr: 'فلنجة / هوب تريلا kërb مقاس 12 طن (5D 12T)', nameEn: 'kërb 12-Ton Trailer Wheel Hub (5D 12T)', specsAr: 'هوب زهر مقوى عالي الدقة لمحاور التريلات 12 طن', specsEn: 'Precision cast-iron 12T wheel hub for trailer axles' },
+      { id: 17, oem: 'UTP-1635', brand: 'bpw', category: 'brakes', icon: '🛑', nameAr: 'رجلاش فرامل تريلات وشاحنات (UTP-1635)', nameEn: 'Heavy-Duty Brake Slack Adjuster (UTP-1635)', specsAr: 'رجلاش فرامل دقيق للخدمة الشاقة ومتوافق مع المحاور الأوروبية', specsEn: 'Precision heavy-duty slack adjuster for European axles' },
+      { id: 18, oem: 'RA-BRK-KIT', brand: 'bpw', category: 'brakes', icon: '🛑', nameAr: 'طقم إصلاح فرامل وكامة كامل (روائع الأبراج)', nameEn: 'Complete Brake & Camshaft Repair Kit', specsAr: 'يشمل جلب نحاس، بنوز تيل، بكر (رولز)، تيل تثبيت، وردات وصواميل', specsEn: 'Includes bronze bushings, brake shoe pins, rollers, clips & washers' },
+      { id: 19, oem: 'OKOC-SPIDER', brand: 'bpw', category: 'brakes', icon: '🛑', nameAr: 'عنكبوت فرامل محور تريلا (Brake Spider)', nameEn: 'Heavy-Duty Trailer Axle Brake Spider', specsAr: 'قاعدة تثبيت تيل وأحذية الفرامل زهر صلب للخدمة الشاقة', specsEn: 'Heavy-duty cast iron brake shoe mounting spider' },
+      { id: 20, oem: 'BGS352', brand: 'bpw', category: 'kingpin', icon: '🎯', nameAr: 'مسمار سحب تريلا / كينج بن BGS352 (2 بوصة)', nameEn: 'BGS352 2-Inch Trailer King Pin (D180)', specsAr: 'كينج بن 2 بوصة معتمد أوروبياً (E11 55R02) بقاعدة مسامير', specsEn: 'Certified 2-inch bolt-in king pin (E11 55R02 / D180)' },
+      { id: 21, oem: 'BBG-KP-10.9', brand: 'bpw', category: 'kingpin', icon: '🎯', nameAr: 'كينج بن BBG أسود كامل بمسامير 10.9', nameEn: 'BBG Black King Pin with 10.9 Bolts', specsAr: 'مسمار سحب مقطورات BBG مجهز بالكامل بمسامير التثبيت صلابة 10.9', specsEn: 'Complete BBG black king pin assembly with Grade 10.9 bolts' },
+      { id: 22, oem: 'HZ063', brand: 'chinese', category: 'brackets', icon: '🏗️', nameAr: 'كرسي / شيالة سستة زهر أسود (HZ063)', nameEn: 'Cast Iron Leaf Spring Hanger Bracket (HZ063)', specsAr: 'شيالة سستة زهر مقوى للشاحنات الصينية والمقطورات', specsEn: 'Heavy-duty cast iron spring hanger bracket for trucks' },
+      { id: 23, oem: 'CS-M11-A-101', brand: 'bpw', category: 'brackets', icon: '🏗️', nameAr: 'طقم كراسي دفرنس وقواعد سست (Axle Seats)', nameEn: 'Axle Seats & Spring Mounting Plates Set', specsAr: 'تشكيلة قواعد تثبيت دفرنس وسست (CS-M11-A-101 و R880-3)', specsEn: 'Assorted axle seats & spring plates (CS-M11-A-101 & R880-3)' },
+      { id: 24, oem: 'SHACKLE-PIN-HD', brand: 'man', category: 'brackets', icon: '🏗️', nameAr: 'شيالة سستة كاملة بالبنز والصواميل', nameEn: 'Complete Spring Shackle with Pin & Locknuts', specsAr: 'شيالة زهر أسود مجهزة بالبنز وصواميل التثبيت ذاتية القفل', specsEn: 'Black cast spring shackle complete with pin and locknuts' },
+      { id: 25, oem: 'A-77-3543', brand: 'bpw', category: 'brackets', icon: '🏗️', nameAr: 'طقم وردات وبلاطة تثبيت تعليق (A-77-3543)', nameEn: 'Suspension Alignment Plate & Washer Kit (A-77-3543)', specsAr: 'طقم كامل يشمل البلاطة والجلب والوردات وحلقات التثبيت', specsEn: 'Complete kit with alignment plate, bushings, washers & circlips' },
+      { id: 26, oem: '20390840', brand: 'volvo', category: 'bushings', icon: '⚫', nameAr: 'جلبة تعليق وتوازن فولفو (20390840)', nameEn: 'Volvo Suspension & Torque Rod Bushing (20390840)', specsAr: 'جلبة تعليق أصلية المواصفات لشاحنات فولفو FH / FM', specsEn: 'OEM-spec suspension bushing for Volvo FH / FM trucks' },
+      { id: 27, oem: 'AXLE-W-73.6', brand: 'bpw', category: 'hubs', icon: '⚙️', nameAr: 'وردة ضبط محور (73.6 × 42.6 × 23 مم)', nameEn: 'Axle Precision Spacer Washer (73.6x42.6x23mm)', specsAr: 'وردة تثبيت محور بمقاسات هندسية دقيقة', specsEn: 'Precision-machined axle spacer washer' },
+      { id: 28, oem: 'TRL-PLATE-KIT', brand: 'bpw', category: 'kingpin', icon: '🏗️', nameAr: 'طقم صاج وتثبيت وخطاطيف مقطورات', nameEn: 'Trailer Steel Plates, Hooks & Pins Hardware Kit', specsAr: 'ألواح وبلاطات حديد، خطاطيف، بنوز، وقفزان تثبيت للمقطورات', specsEn: 'Heavy steel mounting plates, hooks, pins & U-clamps for trailers' }
+    ];
+
+    const TEXT = {
+      ar: {
+        topBar: 'خدمة استلام الطلبات من فروعنا بالرياض (الصناعية) فقط | للاستفسار المباشر عن الأسعار عبر واتساب:',
+        brandTitle: 'مؤسسة روائع الأبراج للتجارة',
+        brandSubtitle: 'قطع غيار الشاحنات والمقطورات — الرياض',
+        langBtn: 'English 🌐',
+        cartBtn: 'سلة الاستلام',
+        heroPill: 'علامة Z 10.9 • استلام فوري من الرياض',
+        heroTitle: 'أجود قطع غيار الشاحنات والتريلات في الرياض',
+        heroDesc: 'نوفر قطع غيار مرسيدس أكتروس، مان، فولفو، إيسوزو، ميتسوبيشي، صيني تراك (ساني)، ومحاور BPW للتريلات. جهّز طلبك واستلمه مباشرة من فروعنا بحي الصناعية.',
+        searchPlaceholder: 'ابحث باسم القطعة، رقم القطعة (OEM)، أو نوع الشاحنة...',
+        badges: ['📦 استلام من الفرع (Pick Up) — الرياض', '💬 تسعير فوري عبر واتساب', '🕒 السبت – الخميس: 7 ص – 8 م (الجمعة إجازة)'],
+        brandFilterLabel: 'اختر نوع الشاحنة / الوكالة:',
+        catFilterLabel: 'اختر التصنيف:',
+        brands: {
+          all: 'الكل', actros: 'مرسيدس أكتروس', chinese: 'صيني تراك / ساني', man: 'مان (MAN)',
+          volvo: 'فولفو (Volvo)', isuzu: 'إيسوزو', mitsubishi: 'ميتسوبيشي', bpw: 'تريلات / BPW'
+        },
+        cats: {
+          all: 'جميع القطع', springs: 'السست والريش', bolts: 'القفزان والمسامير Z 10.9',
+          hubs: 'الفلنجات والهوبات', brakes: 'الفرامل والرجلاشات', brackets: 'الكراسي والشيالات',
+          bushings: 'الجلب والمطاط', kingpin: 'الكينج بن والتثبيت'
+        },
+        resultsCount: (n) => `عرض ${n} قطعة غيار متوفرة`,
+        clearFilters: 'مسح الفلاتر',
+        waPriceBtn: '💬 لمعرفة سعر القطعة تواصل واتساب',
+        addToCartBtn: '+ أضف لطلب الاستلام',
+        copyOemBtn: 'نسخ OEM',
+        copiedToast: 'تم نسخ رقم القطعة (OEM)',
+        addedToast: 'تمت الإضافة إلى سلة الاستلام',
+        noResults: 'لا توجد قطع مطابقة للبحث حالياً. تواصل معنا عبر واتساب وسنوفرها لك فوراً.',
+        branchesTitle: 'فروع الاستلام ومواعيد العمل — الرياض',
+        branch1Title: '📍 الفرع الأول — شارع زيد بن حارثة',
+        branch1Addr: '3997 شارع زيد بن حارثة، حي الصناعية، الرياض (RENA3997)',
+        branch2Title: '📍 الفرع الثاني — حي الصناعية (12872)',
+        branch2Addr: 'حي الصناعية، الرياض 12872 — الرمز: JQM4+9G3 (7HP8JQM4+9G)',
+        hoursTitle: '🕒 مواعيد العمل وأرقام التواصل',
+        hoursText: 'السبت إلى الخميس: 7:00 صباحاً – 8:00 مساءً (الجمعة إجازة)',
+        priceWaLabel: 'واتساب الأسعار:',
+        otherContactsLabel: 'أرقام التواصل والطلبات:',
+        landlineLabel: 'الهاتف الثابت (الفرع الثاني):',
+        footerCopy: '© 2026 مؤسسة روائع الأبراج للتجارة — الرياض. جميع الحقوق محفوظة.',
+        adminBtn: '⚙️ لوحة التحكم (للإدارة)',
+        cartTitle: 'سلة الاستلام من الفرع (الرياض)',
+        cartEmpty: 'سلة الاستلام فارغة حالياً. أضف القطع المطلوبة لتجهيزها قبل وصولك للفرع.',
+        cartPriceNote: 'السعر: يتم تأكيده عبر الواتساب • رسوم الاستلام من الفرع: مجاناً',
+        proceedCheckout: 'متابعة حجز الاستلام من الفرع',
+        qvOem: 'رقم القطعة (OEM):',
+        qvSpecs: 'المواصفات:',
+        checkoutTitle: 'تأكيد طلب الاستلام من الفرع (الرياض)',
+        nameLabel: 'الاسم الكامل *',
+        phoneLabel: 'رقم الجوال *',
+        branchLabel: 'اختر فرع الاستلام في الرياض *',
+        branch1Opt: 'فرع شارع زيد بن حارثة — حي الصناعية (RENA3997)',
+        branch2Opt: 'فرع حي الصناعية 12872 — (JQM4+9G3)',
+        notesLabel: 'ملاحظات إضافية (موديل الشاحنة / وقت الحضور)',
+        submitOrderBtn: 'تأكيد الطلب وإرساله عبر الواتساب',
+        orderSuccessTitle: 'تم تسجيل طلب الاستلام بنجاح!',
+        orderIdLabel: 'رقم الطلب:',
+        openWaOrderBtn: '💬 إرسال تفاصيل الطلب عبر الواتساب الآن',
+        adminTitle: 'لوحة تحكم مؤسسة روائع الأبراج',
+        pinPrompt: 'أدخل رمز الإدارة (PIN الافتراضي: 1234)',
+        pinBtn: 'دخول'
+      },
+      en: {
+        topBar: 'Riyadh Branch Pick-Up Service (Al-Sinaiyah) | Direct Price Inquiry via WhatsApp:',
+        brandTitle: 'Rawaea Al-Abraj Trading Est.',
+        brandSubtitle: 'Heavy-Duty Truck & Trailer Spare Parts — Riyadh',
+        langBtn: 'عربي 🌐',
+        cartBtn: 'Pick-Up Cart',
+        heroPill: 'Z 10.9 Grade • Instant Riyadh Pick-Up',
+        heroTitle: 'Heavy-Duty Truck & Trailer Spare Parts in Riyadh',
+        heroDesc: 'Supplying spare parts for Mercedes Actros, MAN, Volvo, Isuzu, Mitsubishi, SANY / Chinese Trucks, and BPW Trailers. Prepare your order online and pick it up from our Al-Sinaiyah branches.',
+        searchPlaceholder: 'Search by part name, OEM number, or truck brand...',
+        badges: ['📦 Branch Pick-Up Only — Riyadh', '💬 Instant WhatsApp Pricing', '🕒 Sat–Thu: 7:00 AM – 8:00 PM (Fri Closed)'],
+        brandFilterLabel: 'Filter by Truck Brand:',
+        catFilterLabel: 'Filter by Category:',
+        brands: {
+          all: 'All Brands', actros: 'Mercedes Actros', chinese: 'SANY / Chinese', man: 'MAN',
+          volvo: 'Volvo', isuzu: 'Isuzu', mitsubishi: 'Mitsubishi', bpw: 'Trailers / BPW'
+        },
+        cats: {
+          all: 'All Parts', springs: 'Leaf Springs', bolts: 'U-Bolts & Bolts Z 10.9',
+          hubs: 'Wheel Hubs', brakes: 'Brakes & Adjusters', brackets: 'Brackets & Seats',
+          bushings: 'Bushings & Rubber', kingpin: 'King Pins & Hardware'
+        },
+        resultsCount: (n) => `Showing ${n} available spare parts`,
+        clearFilters: 'Clear Filters',
+        waPriceBtn: '💬 Contact WhatsApp for Price',
+        addToCartBtn: '+ Add to Pick-Up Cart',
+        copyOemBtn: 'Copy OEM',
+        copiedToast: 'OEM number copied!',
+        addedToast: 'Added to pick-up cart',
+        noResults: 'No matching parts found. Message us on WhatsApp and we will source it for you.',
+        branchesTitle: 'Riyadh Pick-Up Branches & Hours',
+        branch1Title: '📍 Branch 1 — Zaid Bin Harithah St.',
+        branch1Addr: '3997 Zaid Bin Harithah St, Al Sinaiyah, Riyadh (RENA3997)',
+        branch2Title: '📍 Branch 2 — Al Sinaiyah (12872)',
+        branch2Addr: 'Al Sinaiyah, Riyadh 12872 — Plus Code: JQM4+9G3 (7HP8JQM4+9G)',
+        hoursTitle: '🕒 Working Hours & Contacts',
+        hoursText: 'Saturday – Thursday: 7:00 AM – 8:00 PM (Friday Closed)',
+        priceWaLabel: 'Price Inquiry WhatsApp:',
+        otherContactsLabel: 'Orders & General Contacts:',
+        landlineLabel: 'Landline (Branch 2):',
+        footerCopy: '© 2026 Rawaea Al-Abraj Trading Est. — Riyadh. All rights reserved.',
+        adminBtn: '⚙️ Admin Panel',
+        cartTitle: 'Branch Pick-Up Cart (Riyadh)',
+        cartEmpty: 'Your pick-up cart is empty. Add parts to prepare your order before visiting.',
+        cartPriceNote: 'Price: Confirmed via WhatsApp • Branch Pick-Up: Free',
+        proceedCheckout: 'Proceed to Branch Pick-Up Booking',
+        qvOem: 'Part Number (OEM):',
+        qvSpecs: 'Specifications:',
+        checkoutTitle: 'Confirm Branch Pick-Up Order (Riyadh)',
+        nameLabel: 'Full Name *',
+        phoneLabel: 'Mobile Number *',
+        branchLabel: 'Select Riyadh Pick-Up Branch *',
+        branch1Opt: 'Zaid Bin Harithah St. Branch — Al Sinaiyah (RENA3997)',
+        branch2Opt: 'Al Sinaiyah 12872 Branch — (JQM4+9G3)',
+        notesLabel: 'Additional Notes (Truck model / arrival time)',
+        submitOrderBtn: 'Confirm & Send Order via WhatsApp',
+        orderSuccessTitle: 'Pick-Up Order Registered!',
+        orderIdLabel: 'Order ID:',
+        openWaOrderBtn: '💬 Send Order Details on WhatsApp Now',
+        adminTitle: 'Rawaea Al-Abraj Admin Panel',
+        pinPrompt: 'Enter Admin PIN (Default: 1234)',
+        pinBtn: 'Login'
+      }
+    };
+
+    let lang = localStorage.getItem('ra_lang') || 'ar';
+    let settings = JSON.parse(localStorage.getItem('ra_settings') || 'null') || { ...DEFAULT_SETTINGS };
+    let products = JSON.parse(localStorage.getItem('ra_products') || 'null') || [...DEFAULT_PRODUCTS];
+    let cart = JSON.parse(localStorage.getItem('ra_cart') || '[]');
+    let orders = JSON.parse(localStorage.getItem('ra_orders') || '[]');
+    let selectedBrand = 'all';
+    let selectedCat = 'all';
+    let adminLoggedIn = false;
+    let adminTab = 'products';
+
+    function saveState() {
+      localStorage.setItem('ra_lang', lang);
+      localStorage.setItem('ra_settings', JSON.stringify(settings));
+      localStorage.setItem('ra_products', JSON.stringify(products));
+      localStorage.setItem('ra_cart', JSON.stringify(cart));
+      localStorage.setItem('ra_orders', JSON.stringify(orders));
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.style.display = 'block';
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => { el.style.display = 'none'; }, 2400);
+    }
+
+    function buildPriceWaUrl(product) {
+      const num = (settings.waPrice || '966581504497').replace(/[^0-9]/g, '');
+      const msg = lang === 'ar'
+        ? `السلام عليكم، أرغب في معرفة سعر القطعة:\nاسم القطعة: ${product.nameAr}\nرقم القطعة: ${product.oem}`
+        : `Hello, I would like to know the price of this part:\nPart Name: ${product.nameEn}\nPart Number (OEM): ${product.oem}`;
+      return `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+    }
+
+    function copyText(text) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+      }
+      showToast(TEXT[lang].copiedToast + ': ' + text);
+    }
+
+    function toggleLanguage() {
+      lang = lang === 'ar' ? 'en' : 'ar';
+      saveState();
+      applyLanguage();
+    }
+
+    function applyLanguage() {
+      const t = TEXT[lang];
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+      document.getElementById('topBar').innerHTML =
+        `${t.topBar} <a href="https://wa.me/${settings.waPrice.replace(/[^0-9]/g,'')}" target="_blank" dir="ltr">+${settings.waPrice.replace(/[^0-9]/g,'')}</a>`;
+      document.getElementById('brandTitle').textContent = t.brandTitle;
+      document.getElementById('brandSubtitle').textContent = t.brandSubtitle;
+      document.getElementById('langToggleBtn').textContent = t.langBtn;
+      document.getElementById('cartBtnLabel').textContent = t.cartBtn;
+      document.getElementById('heroPill').textContent = t.heroPill;
+      document.getElementById('heroTitle').textContent = t.heroTitle;
+      document.getElementById('heroDesc').textContent = t.heroDesc;
+      document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+      document.getElementById('heroBadges').innerHTML = t.badges.map(b => `<span>${b}</span>`).join('');
+      document.getElementById('brandFilterLabel').textContent = t.brandFilterLabel;
+      document.getElementById('catFilterLabel').textContent = t.catFilterLabel;
+      document.getElementById('clearFiltersBtn').textContent = t.clearFilters;
+      document.getElementById('branchesSectionTitle').textContent = t.branchesTitle;
+      document.getElementById('footerCopy').textContent = t.footerCopy;
+      document.getElementById('adminOpenBtn').textContent = t.adminBtn;
+      document.getElementById('cartDrawerTitle').textContent = t.cartTitle;
+      document.getElementById('cartPriceNote').textContent = t.cartPriceNote;
+      document.getElementById('proceedCheckoutBtn').textContent = t.proceedCheckout;
+
+      renderBranches();
+      renderFilters();
+      renderCatalog();
+      updateCartBadge();
+    }
+
+    function renderBranches() {
+      const t = TEXT[lang];
+      const waPriceClean = settings.waPrice.replace(/[^0-9]/g, '');
+      const waOrderClean = settings.waOrder.replace(/[^0-9]/g, '');
+      document.getElementById('branchesGrid').innerHTML = `
+        <div class="info-card">
+          <h3>${t.branch1Title}</h3>
+          <p>${t.branch1Addr}</p>
+          <p><strong>${t.hoursText}</strong></p>
+        </div>
+        <div class="info-card">
+          <h3>${t.branch2Title}</h3>
+          <p>${t.branch2Addr}</p>
+          <p>${t.landlineLabel} <a class="phone-link" href="tel:${settings.landline.replace(/\s+/g,'')}">${settings.landline}</a></p>
+        </div>
+        <div class="info-card">
+          <h3>${t.hoursTitle}</h3>
+          <ul>
+            <li>${t.priceWaLabel} <a class="phone-link" href="https://wa.me/${waPriceClean}" target="_blank">+${waPriceClean}</a></li>
+            <li>${t.otherContactsLabel}
+              <br><a class="phone-link" href="https://wa.me/${waOrderClean}" target="_blank">+${waOrderClean}</a>
+              &nbsp;|&nbsp;
+              <a class="phone-link" href="tel:${settings.phoneExtra.replace(/\s+/g,'')}">${settings.phoneExtra}</a>
+            </li>
+          </ul>
+        </div>
+      `;
+    }
+
+    function renderFilters() {
+      const t = TEXT[lang];
+      document.getElementById('brandPills').innerHTML = Object.entries(t.brands).map(([key, label]) =>
+        `<button class="pill ${selectedBrand===key?'active':''}" onclick="setBrand('${key}')">${label}</button>`
+      ).join('');
+
+      document.getElementById('catPills').innerHTML = Object.entries(t.cats).map(([key, label]) =>
+        `<button class="pill ${selectedCat===key?'active':''}" onclick="setCat('${key}')">${label}</button>`
+      ).join('');
+    }
+
+    function setBrand(b) { selectedBrand = b; renderFilters(); renderCatalog(); }
+    function setCat(c) { selectedCat = c; renderFilters(); renderCatalog(); }
+    function resetFilters() {
+      selectedBrand = 'all';
+      selectedCat = 'all';
+      document.getElementById('searchInput').value = '';
+      renderFilters();
+      renderCatalog();
+    }
+
+    function renderCatalog() {
+      const t = TEXT[lang];
+      const q = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+      const filtered = products.filter(p => {
+        if (selectedBrand !== 'all' && p.brand !== selectedBrand) return false;
+        if (selectedCat !== 'all' && p.category !== selectedCat) return false;
+        if (q) {
+          const hay = `${p.nameAr} ${p.nameEn} ${p.oem} ${p.specsAr} ${p.specsEn} ${t.brands[p.brand]||''}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      document.getElementById('resultsCount').textContent = t.resultsCount(filtered.length);
+      document.getElementById('clearFiltersBtn').style.display =
+        (selectedBrand !== 'all' || selectedCat !== 'all' || q) ? 'inline-block' : 'none';
+
+      const grid = document.getElementById('productsGrid');
+      if (!filtered.length) {
+        grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px 16px;background:#fff;border-radius:14px;border:1px solid #e5e7eb;">
+          <p style="font-weight:700;margin-bottom:14px;">${t.noResults}</p>
+          <a class="btn-wa" href="https://wa.me/${settings.waPrice.replace(/[^0-9]/g,'')}" target="_blank">${t.waPriceBtn}</a>
+        </div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(p => {
+        const name = lang === 'ar' ? p.nameAr : p.nameEn;
+        const specs = lang === 'ar' ? p.specsAr : p.specsEn;
+        const brandLabel = t.brands[p.brand] || p.brand;
+        const catLabel = t.cats[p.category] || p.category;
+        return `
+          <article class="product-card">
+            <div>
+              <div class="card-top">
+                <span class="brand-tag">${brandLabel}</span>
+                <span class="cat-tag">${catLabel}</span>
+              </div>
+              <div class="part-visual" onclick="openQuickView(${p.id})">
+                <span class="part-icon">${p.icon || '⚙️'}</span>
+                <span class="oem-pill">OEM: ${p.oem}</span>
+              </div>
+              <h3 class="product-title" onclick="openQuickView(${p.id})">${name}</h3>
+              <p class="product-specs">${specs}</p>
+            </div>
+            <div class="card-actions">
+              <a class="btn-wa" href="${buildPriceWaUrl(p)}" target="_blank">${t.waPriceBtn}</a>
+              <div class="card-sub-actions">
+                <button class="btn-add" onclick="addToCart(${p.id})">${t.addToCartBtn}</button>
+                <button class="btn-copy" onclick="copyText('${p.oem.replace(/'/g,"\\'")}')">${t.copyOemBtn}</button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function openQuickView(id) {
+      const p = products.find(x => x.id === id);
+      if (!p) return;
+      const t = TEXT[lang];
+      const name = lang === 'ar' ? p.nameAr : p.nameEn;
+      const specs = lang === 'ar' ? p.specsAr : p.specsEn;
+      document.getElementById('qvTitle').textContent = name;
+      document.getElementById('qvBody').innerHTML = `
+        <div class="part-visual" style="margin-bottom:16px;">
+          <span class="part-icon" style="font-size:3rem;">${p.icon || '⚙️'}</span>
+          <div style="margin-top:8px;"><strong>${t.qvOem}</strong> <span class="oem-pill">${p.oem}</span></div>
+        </div>
+        <p style="margin-bottom:16px;"><strong>${t.qvSpecs}</strong> ${specs}</p>
+        <div class="price-note">${t.cartPriceNote}</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a class="btn-wa" href="${buildPriceWaUrl(p)}" target="_blank">${t.waPriceBtn}</a>
+          <button class="btn-primary" onclick="addToCart(${p.id}); closeQuickView();">${t.addToCartBtn}</button>
+        </div>
+      `;
+      document.getElementById('quickViewOverlay').style.display = 'flex';
+    }
+    function closeQuickView() { document.getElementById('quickViewOverlay').style.display = 'none'; }
+
+    function addToCart(id) {
+      const existing = cart.find(i => i.id === id);
+      if (existing) existing.qty += 1;
+      else cart.push({ id, qty: 1 });
+      saveState();
+      updateCartBadge();
+      showToast(TEXT[lang].addedToast);
+    }
+
+    function updateQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+      saveState();
+      updateCartBadge();
+      renderCartItems();
+    }
+
+    function updateCartBadge() {
+      const total = cart.reduce((s, i) => s + i.qty, 0);
+      document.getElementById('cartCount').textContent = total;
+    }
+
+    function openCart() {
+      renderCartItems();
+      document.getElementById('cartOverlay').style.display = 'flex';
+    }
+    function closeCart() { document.getElementById('cartOverlay').style.display = 'none'; }
+
+    function renderCartItems() {
+      const t = TEXT[lang];
+      const box = document.getElementById('cartItemsContainer');
+      const btn = document.getElementById('proceedCheckoutBtn');
+      if (!cart.length) {
+        box.innerHTML = `<p style="text-align:center;color:#6b7280;padding:40px 10px;font-weight:700;">${t.cartEmpty}</p>`;
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+        return;
+      }
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      box.innerHTML = cart.map(item => {
+        const p = products.find(x => x.id === item.id);
+        if (!p) return '';
+        const name = lang === 'ar' ? p.nameAr : p.nameEn;
+        return `
+          <div class="cart-item">
+            <div>
+              <div style="font-weight:800;font-size:0.92rem;">${name}</div>
+              <div style="font-size:0.8rem;color:#6b7280;direction:ltr;display:inline-block;">OEM: ${p.oem}</div>
+            </div>
+            <div class="qty-controls">
+              <button onclick="updateQty(${p.id}, -1)">−</button>
+              <strong>${item.qty}</strong>
+              <button onclick="updateQty(${p.id}, 1)">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openCheckout() {
+      if (!cart.length) return;
+      closeCart();
+      const t = TEXT[lang];
+      document.getElementById('checkoutTitle').textContent = t.checkoutTitle;
+      document.getElementById('checkoutBody').innerHTML = `
+        <form id="checkoutForm" onsubmit="submitOrder(event)">
+          <div class="form-group">
+            <label>${t.nameLabel}</label>
+            <input type="text" id="custName" required />
+          </div>
+          <div class="form-group">
+            <label>${t.phoneLabel}</label>
+            <input type="tel" id="custPhone" required placeholder="05xxxxxxxx" dir="ltr" />
+          </div>
+          <div class="form-group">
+            <label>${t.branchLabel}</label>
+            <select id="custBranch" required>
+              <option value="${t.branch1Opt}">${t.branch1Opt}</option>
+              <option value="${t.branch2Opt}">${t.branch2Opt}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>${t.notesLabel}</label>
+            <textarea id="custNotes" rows="2"></textarea>
+          </div>
+          <div class="price-note">${t.cartPriceNote}</div>
+          <button type="submit" class="btn-primary">${t.submitOrderBtn}</button>
+        </form>
+      `;
+      document.getElementById('checkoutOverlay').style.display = 'flex';
+    }
+    function closeCheckout() { document.getElementById('checkoutOverlay').style.display = 'none'; }
+
+    async function submitOrder(e) {
+      e.preventDefault();
+      const t = TEXT[lang];
+      const orderId = 'RA-' + Math.floor(1000 + Math.random() * 9000);
+      const customerName = document.getElementById('custName').value.trim();
+      const customerPhone = document.getElementById('custPhone').value.trim();
+      const branch = document.getElementById('custBranch').value;
+      const notes = document.getElementById('custNotes').value.trim();
+      const itemsList = cart.map(i => {
+        const p = products.find(x => x.id === i.id);
+        return p ? `${lang==='ar'?p.nameAr:p.nameEn} (OEM: ${p.oem}) × ${i.qty}` : '';
+      }).filter(Boolean);
+
+      const orderRecord = {
+        orderId,
+        date: new Date().toLocaleString('en-GB'),
+        customerName,
+        customerPhone,
+        branch,
+        items: itemsList.join(' | '),
+        totalQty: cart.reduce((s, i) => s + i.qty, 0),
+        notes,
+        status: 'New Pick-Up'
+      };
+
+      orders.unshift(orderRecord);
+      cart = [];
+      saveState();
+      updateCartBadge();
+
+      if (settings.webhookUrl) {
+        try {
+          await fetch(settings.webhookUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderRecord)
+          });
+        } catch (err) { console.warn('Webhook sync skipped:', err); }
+      }
+
+      const waOrderNum = (settings.waOrder || '966504258930').replace(/[^0-9]/g, '');
+      const waMsg = lang === 'ar'
+        ? `طلب استلام من الفرع (الرياض)\nرقم الطلب: ${orderId}\nالاسم: ${customerName}\nالجوال: ${customerPhone}\nالفرع: ${branch}\nالقطع المطلوبة:\n- ${itemsList.join('\n- ')}\nالسعر: يتم تأكيده عبر الواتساب${notes ? '\nملاحظات: ' + notes : ''}`
+        : `Branch Pick-Up Order (Riyadh)\nOrder ID: ${orderId}\nName: ${customerName}\nPhone: ${customerPhone}\nBranch: ${branch}\nItems:\n- ${itemsList.join('\n- ')}\nPrice: Confirmed via WhatsApp${notes ? '\nNotes: ' + notes : ''}`;
+
+      const waUrl = `https://wa.me/${waOrderNum}?text=${encodeURIComponent(waMsg)}`;
+      document.getElementById('checkoutBody').innerHTML = `
+        <div style="text-align:center;padding:16px 6px;">
+          <div style="font-size:2.6rem;margin-bottom:8px;">✅</div>
+          <h3 style="margin-bottom:8px;color:#15803d;">${t.orderSuccessTitle}</h3>
+          <p style="font-weight:800;margin-bottom:16px;">${t.orderIdLabel} <span dir="ltr">${orderId}</span></p>
+          <a class="btn-wa" style="width:100%;padding:13px;" href="${waUrl}" target="_blank">${t.openWaOrderBtn}</a>
+        </div>
+      `;
+    }
+
+    /* Admin Panel */
+    function openAdmin() {
+      document.getElementById('adminModalTitle').textContent = TEXT[lang].adminTitle;
+      renderAdmin();
+      document.getElementById('adminOverlay').style.display = 'flex';
+    }
+    function closeAdmin() { document.getElementById('adminOverlay').style.display = 'none'; }
+
+    function renderAdmin() {
+      const body = document.getElementById('adminBody');
+      if (!adminLoggedIn) {
+        body.innerHTML = `
+          <form onsubmit="checkAdminPin(event)" style="max-width:340px;margin:20px auto;text-align:center;">
+            <div class="form-group">
+              <label>${TEXT[lang].pinPrompt}</label>
+              <input type="password" id="pinInput" required dir="ltr" style="text-align:center;font-size:1.2rem;letter-spacing:4px;" />
+            </div>
+            <button type="submit" class="btn-primary">${TEXT[lang].pinBtn}</button>
+          </form>
+        `;
+        return;
+      }
+
+      const tabs = `
+        <div class="admin-tabs">
+          <button class="admin-tab ${adminTab==='products'?'active':''}" onclick="adminTab='products';renderAdmin()">المنتجات (${products.length})</button>
+          <button class="admin-tab ${adminTab==='orders'?'active':''}" onclick="adminTab='orders';renderAdmin()">الطلبات (${orders.length})</button>
+          <button class="admin-tab ${adminTab==='sheets'?'active':''}" onclick="adminTab='sheets';renderAdmin()">ربط Google Sheets</button>
+          <button class="admin-tab ${adminTab==='settings'?'active':''}" onclick="adminTab='settings';renderAdmin()">إعدادات المتجر</button>
+        </div>
+      `;
+
+      if (adminTab === 'products') {
+        body.innerHTML = tabs + `
+          <form onsubmit="addProductAdmin(event)" style="background:#f9fafb;padding:14px;border-radius:12px;margin-bottom:16px;border:1px solid #e5e7eb;">
+            <h4 style="margin-bottom:10px;">+ إضافة قطعة جديدة</h4>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <input id="npNameAr" placeholder="الاسم بالعربي *" required style="padding:8px;border:1px solid #d1d5db;border-radius:8px;" />
+              <input id="npNameEn" placeholder="English Name *" required style="padding:8px;border:1px solid #d1d5db;border-radius:8px;" />
+              <input id="npOem" placeholder="رقم OEM *" required dir="ltr" style="padding:8px;border:1px solid #d1d5db;border-radius:8px;" />
+              <select id="npBrand" style="padding:8px;border:1px solid #d1d5db;border-radius:8px;">
+                <option value="actros">Mercedes Actros</option><option value="chinese">SANY / Chinese</option>
+                <option value="man">MAN</option><option value="volvo">Volvo</option>
+                <option value="isuzu">Isuzu</option><option value="mitsubishi">Mitsubishi</option><option value="bpw">Trailers / BPW</option>
+              </select>
+              <select id="npCat" style="padding:8px;border:1px solid #d1d5db;border-radius:8px;">
+                <option value="springs">السست والريش</option><option value="bolts">القفزان والمسامير</option>
+                <option value="hubs">الفلنجات والهوبات</option><option value="brakes">الفرامل والرجلاشات</option>
+                <option value="brackets">الكراسي والشيالات</option><option value="bushings">الجلب والمطاط</option><option value="kingpin">الكينج بن</option>
+              </select>
+              <input id="npSpecsAr" placeholder="مواصفات مختصرة" style="padding:8px;border:1px solid #d1d5db;border-radius:8px;" />
+            </div>
+            <button type="submit" class="btn-primary" style="margin-top:10px;padding:9px;">حفظ القطعة</button>
+          </form>
+          <div style="max-height:260px;overflow-y:auto;">
+            ${products.map(p => `
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:8px;border-bottom:1px solid #eee;gap:8px;">
+                <div><strong>${p.nameAr}</strong> <span style="color:#6b7280;font-size:0.82rem;" dir="ltr">(${p.oem})</span></div>
+                <button onclick="deleteProductAdmin(${p.id})" style="color:#dc2626;font-weight:800;">حذف</button>
+              </div>
+            `).join('')}
+          </div>
+          <button onclick="resetProductsDefault()" class="btn-copy" style="margin-top:12px;">استعادة الـ 28 منتج الافتراضية</button>
+        `;
+      } else if (adminTab === 'orders') {
+        body.innerHTML = tabs + (orders.length ? `
+          <button onclick="exportOrdersCsv()" class="btn-primary" style="margin-bottom:12px;padding:9px;">📥 تصدير الطلبات Excel / CSV</button>
+          ${orders.map(o => `
+            <div style="border:1px solid #e5e7eb;border-radius:10px;padding:10px;margin-bottom:8px;font-size:0.86rem;">
+              <strong>${o.orderId}</strong> — ${o.date}<br>
+              ${o.customerName} (<span dir="ltr">${o.customerPhone}</span>) | ${o.branch}<br>
+              <span style="color:#4b5563;">${o.items}</span>
+            </div>
+          `).join('')}
+        ` : `<p style="text-align:center;color:#6b7280;padding:24px;">لا توجد طلبات مسجلة بعد.</p>`);
+      } else if (adminTab === 'sheets') {
+        const scriptCode = `function doPost(e) {\n  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();\n  var data = JSON.parse(e.postData.contents);\n  if (sheet.getLastRow() === 0) {\n    sheet.appendRow(["Order ID","Date","Customer","Phone","Branch","Items","Qty","Notes","Status"]);\n  }\n  sheet.appendRow([data.orderId, data.date, data.customerName, data.customerPhone, data.branch, data.items, data.totalQty, data.notes, data.status]);\n  return ContentService.createTextOutput("OK");\n}`;
+        body.innerHTML = tabs + `
+          <div class="form-group">
+            <label>رابط Google Apps Script Web App URL:</label>
+            <input id="webhookInput" dir="ltr" value="${settings.webhookUrl || ''}" placeholder="https://script.google.com/macros/s/.../exec" />
+          </div>
+          <button class="btn-primary" onclick="saveWebhook()" style="margin-bottom:16px;">حفظ رابط الربط</button>
+          <p style="font-size:0.86rem;font-weight:700;">انسخ هذا الكود وضعه في (Extensions → Apps Script) داخل ملف Google Sheets ثم انشره كـ Web App (Anyone):</p>
+          <div class="code-box" id="appsScriptBox">${scriptCode}</div>
+          <button class="btn-copy" onclick="copyText(document.getElementById('appsScriptBox').textContent)">نسخ الكود</button>
+        `;
+      } else if (adminTab === 'settings') {
+        body.innerHTML = tabs + `
+          <form onsubmit="saveSettingsAdmin(event)">
+            <div class="form-group"><label>رقم واتساب الاستفسار عن الأسعار (مع رمز الدولة بدون +)</label><input id="setWaPrice" dir="ltr" value="${settings.waPrice}" /></div>
+            <div class="form-group"><label>رقم واتساب استلام الطلبات (مع رمز الدولة بدون +)</label><input id="setWaOrder" dir="ltr" value="${settings.waOrder}" /></div>
+            <div class="form-group"><label>رقم جوال إضافي</label><input id="setPhoneExtra" dir="ltr" value="${settings.phoneExtra}" /></div>
+            <div class="form-group"><label>الهاتف الثابت</label><input id="setLandline" dir="ltr" value="${settings.landline}" /></div>
+            <div class="form-group"><label>رمز PIN لوحة التحكم</label><input id="setPin" dir="ltr" value="${settings.adminPin}" /></div>
+            <button type="submit" class="btn-primary">حفظ الإعدادات</button>
+          </form>
+        `;
+      }
+    }
+
+    function checkAdminPin(e) {
+      e.preventDefault();
+      if (document.getElementById('pinInput').value === settings.adminPin) {
+        adminLoggedIn = true;
+        renderAdmin();
+      } else {
+        showToast('رمز PIN غير صحيح');
+      }
+    }
+
+    function addProductAdmin(e) {
+      e.preventDefault();
+      const newId = products.length ? Math.max(...products.map(p => p.id)) + 1 : 1;
+      const specs = document.getElementById('npSpecsAr').value.trim() || 'قطعة غيار أصلية للخدمة الشاقة';
+      products.unshift({
+        id: newId,
+        nameAr: document.getElementById('npNameAr').value.trim(),
+        nameEn: document.getElementById('npNameEn').value.trim(),
+        oem: document.getElementById('npOem').value.trim(),
+        brand: document.getElementById('npBrand').value,
+        category: document.getElementById('npCat').value,
+        icon: '⚙️',
+        specsAr: specs,
+        specsEn: specs
+      });
+      saveState();
+      renderCatalog();
+      renderAdmin();
+      showToast('تمت إضافة القطعة');
+    }
+
+    function deleteProductAdmin(id) {
+      products = products.filter(p => p.id !== id);
+      saveState();
+      renderCatalog();
+      renderAdmin();
+    }
+
+    function resetProductsDefault() {
+      products = [...DEFAULT_PRODUCTS];
+      saveState();
+      renderCatalog();
+      renderAdmin();
+      showToast('تمت استعادة المنتجات الافتراضية');
+    }
+
+    function saveWebhook() {
+      settings.webhookUrl = document.getElementById('webhookInput').value.trim();
+      saveState();
+      showToast('تم حفظ رابط Google Sheets');
+    }
+
+    function saveSettingsAdmin(e) {
+      e.preventDefault();
+      settings.waPrice = document.getElementById('setWaPrice').value.trim();
+      settings.waOrder = document.getElementById('setWaOrder').value.trim();
+      settings.phoneExtra = document.getElementById('setPhoneExtra').value.trim();
+      settings.landline = document.getElementById('setLandline').value.trim();
+      settings.adminPin = document.getElementById('setPin').value.trim() || '1234';
+      saveState();
+      applyLanguage();
+      showToast('تم حفظ الإعدادات بنجاح');
+    }
+
+    function exportOrdersCsv() {
+      const header = ['Order ID','Date','Customer','Phone','Branch','Items','Qty','Notes','Status'];
+      const rows = orders.map(o => [o.orderId, o.date, o.customerName, o.customerPhone, o.branch, o.items, o.totalQty, o.notes, o.status]
+        .map(v => `"${String(v||'').replace(/"/g,'""')}"`).join(','));
+      const csv = '\uFEFF' + [header.join(','), ...rows].join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'rawaea-alabraj-orders.csv';
+      a.click();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCart(); closeQuickView(); closeCheckout(); closeAdmin();
+      }
+    });
+
+    applyLanguage();
+  </script>
+</body>
+</html>
