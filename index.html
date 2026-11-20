@@ -323,7 +323,7 @@
       background: var(--bg-white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 18px;
+      padding: 16px;
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
@@ -340,7 +340,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .brand-tag {
@@ -362,26 +362,68 @@
     }
 
     .part-visual {
-      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-      border: 1px dashed #cbd5e1;
+      background: #0f172a;
+      border: 1px solid #e2e8f0;
       border-radius: 12px;
-      padding: 18px 12px;
-      text-align: center;
-      margin-bottom: 14px;
+      overflow: hidden;
+      margin-bottom: 12px;
       cursor: pointer;
+      position: relative;
+      height: 175px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .part-visual .part-icon {
-      font-size: 2.2rem;
+
+    .part-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
-      margin-bottom: 6px;
+      transition: transform 0.25s ease;
     }
-    .part-visual .oem-pill {
+    .part-visual:hover .part-photo {
+      transform: scale(1.04);
+    }
+
+    .oem-overlay-badge {
+      position: absolute;
+      bottom: 8px;
+      inset-inline-start: 8px;
+      background: rgba(14, 19, 29, 0.88);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.45);
+      padding: 3px 9px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      direction: ltr;
+      backdrop-filter: blur(2px);
+    }
+
+    .qv-photo-wrap {
+      width: 100%;
+      height: 240px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0f172a;
+      margin-bottom: 14px;
+      border: 1px solid var(--border);
+    }
+    .qv-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .oem-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #fff;
+      background: #f3f4f6;
       border: 1px solid #cbd5e1;
-      padding: 4px 10px;
+      padding: 3px 10px;
       border-radius: 8px;
       font-size: 0.82rem;
       font-weight: 800;
@@ -906,35 +948,52 @@
       adminPinHash: '9dff1a09'
     };
 
+    const IMG = {
+      springs: 'https://commons.wikimedia.org/wiki/Special:FilePath/Leaf_spring.jpg',
+      bushings: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bushing_(mechanical).jpg',
+      bolts: 'https://commons.wikimedia.org/wiki/Special:FilePath/U-bolt.jpg',
+      hubs: 'https://commons.wikimedia.org/wiki/Special:FilePath/Wheel_hub.jpg',
+      brakes: 'https://commons.wikimedia.org/wiki/Special:FilePath/Brake_drum.jpg',
+      brackets: 'https://commons.wikimedia.org/wiki/Special:FilePath/Truck_chassis.jpg',
+      kingpin: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fifth_wheel_coupling.jpg',
+      actros: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz_Actros_MP4_truck.jpg',
+      chinese: 'https://commons.wikimedia.org/wiki/Special:FilePath/Heavy_dump_truck.jpg',
+      man: 'https://commons.wikimedia.org/wiki/Special:FilePath/MAN_TGX_truck.jpg',
+      volvo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Volvo_FH_truck.jpg',
+      isuzu: 'https://commons.wikimedia.org/wiki/Special:FilePath/Isuzu_truck.jpg',
+      mitsubishi: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mitsubishi_Fuso_Canter.jpg',
+      bpw: 'https://commons.wikimedia.org/wiki/Special:FilePath/Semi-trailer_truck.jpg'
+    };
+
     const DEFAULT_PRODUCTS = [
-      { id: 1, oem: '9493200302-03', brand: 'actros', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة خلفية مرسيدس أكتروس (رمادية)', nameEn: 'Mercedes Actros Rear Leaf Spring (Grey)', specsAr: 'ريشة سستة عالية التحمل مطابقة للمواصفات الألمانية — متوفرة بالقطعة والربطة', specsEn: 'Heavy-duty grey leaf spring blade — available per piece or bundle' },
-      { id: 2, oem: '9413250150', brand: 'actros', category: 'bushings', icon: '⭕', nameAr: 'جلبة سستة أمامية مرسيدس أكتروس', nameEn: 'Mercedes Actros Front Leaf Spring Bushing', specsAr: 'جلبة صلب معالجة حرارياً لمقاومة التآكل — أكتروس أمامي', specsEn: 'Heat-treated steel front leaf spring bushing for Actros' },
-      { id: 3, oem: '000 326 2481', brand: 'actros', category: 'bushings', icon: '⚫', nameAr: 'جلبة عمود توازن مرسيدس أكتروس', nameEn: 'Mercedes Actros Stabilizer Bar Bushing', specsAr: 'مطاط صناعي مقوى لامتصاص الصدمات والاهتزازات', specsEn: 'Reinforced industrial rubber stabilizer bushing' },
-      { id: 4, oem: '000 323 7985', brand: 'actros', category: 'bushings', icon: '⚫', nameAr: 'جلبة مساعد وتعليق مرسيدس أكتروس', nameEn: 'Mercedes Actros Suspension & Shock Bushing', specsAr: 'جلبة تعليق أكتروس متوفرة مع فئة 000 323 7985/S و 000 323 8185', specsEn: 'Heavy-duty suspension bushing (also fits 000 323 7985/S)' },
-      { id: 5, oem: '942 317 1812', brand: 'actros', category: 'bushings', icon: '⚫', nameAr: 'جلبة كابينة / تعليق مرسيدس', nameEn: 'Mercedes Cab / Suspension Bushing', specsAr: 'معدن ومطاط مقوى للخدمة الشاقة على الطرق الوعرة', specsEn: 'Bonded steel-and-rubber bushing for heavy-duty service' },
-      { id: 6, oem: 'SY412D-A6', brand: 'chinese', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة خلفية شاحنات صيني تراك / ساني', nameEn: 'SANY / Chinese Truck Rear Leaf Spring', specsAr: 'ريشة خلفية رئيسية مخصصة لشاحنات ساني والصيني تراك', specsEn: 'Heavy-duty rear leaf spring for SANY & Chinese trucks' },
-      { id: 7, oem: '500-432-1', brand: 'chinese', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة سوداء رقم 1 (ربطات مستودع)', nameEn: 'Black Leaf Spring #1 (Warehouse Bundles)', specsAr: 'سست سوداء مقوسة مطلية ضد الصدأ — متوفرة بكميات فورية', specsEn: 'Anti-rust coated curved black leaf springs — bulk stock ready' },
-      { id: 8, oem: '500-432-2', brand: 'chinese', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة سوداء رقم 2', nameEn: 'Black Leaf Spring #2', specsAr: 'الريشة الثانية الداعمة لطقم السست الخلفية', specsEn: 'Secondary support leaf spring blade' },
-      { id: 9, oem: '89-707-32240-01', brand: 'isuzu', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة رئيسية بالعين — إيسوزو', nameEn: 'Isuzu Main Leaf Spring with Eye', specsAr: 'ريشة رئيسية بالعيون للشاحنات اليابانية وإيسوزو — رقم 01', specsEn: 'Main leaf spring with rolled eyes for Isuzu trucks (#01)' },
-      { id: 10, oem: '89-707-32240-02', brand: 'isuzu', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة ثانية بالعين — إيسوزو', nameEn: 'Isuzu Secondary Leaf Spring with Eye', specsAr: 'ريشة مساعدة بالعين مطابقة لرقم 02', specsEn: 'Secondary rolled-eye leaf spring (#02)' },
-      { id: 11, oem: '96-1111-235-02', brand: 'mitsubishi', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة شاحنات ميتسوبيشي فوسو', nameEn: 'Mitsubishi Fuso Leaf Spring', specsAr: 'صلب مرن عالي التحمل لشاحنات ميتسوبيشي والنقل المتوسط والثقيل', specsEn: 'High-tensile spring steel blade for Mitsubishi Fuso' },
-      { id: 12, oem: '303-025-1', brand: 'bpw', category: 'springs', icon: '🔩', nameAr: 'ريشة سستة تريلا ومقطورة (رمادية)', nameEn: 'Trailer Leaf Spring Blade (Grey)', specsAr: 'ريشة سستة سميكة لمحاور المقطورات والتريلات — متوفر أيضاً 303-410-1', specsEn: 'Thick trailer axle leaf spring (303-410-1 also available)' },
-      { id: 13, oem: 'Z-UBOLT-10.9', brand: 'actros', category: 'bolts', icon: '🔧', nameAr: 'قفزان ومسامير سست علامة Z (صلابة 10.9)', nameEn: 'Z-Brand Leaf Spring U-Bolts (Grade 10.9)', specsAr: 'قفزان أصلية بعلامة Z صلابة 10.9 لجميع الشاحنات والمقطورات', specsEn: 'Signature Z-Brand Grade 10.9 U-bolts for trucks & trailers' },
-      { id: 14, oem: 'SAMPA-225x24', brand: 'man', category: 'bolts', icon: '🔧', nameAr: 'طقم مسمار تعليق SAMPA (طول 225 × قطر 24 مم)', nameEn: 'SAMPA Suspension Bolt Kit (225mm x 24mm)', specsAr: 'مسمار صلب مع جلبة ووردة وصامولة — متوافق مع مان وأكتروس', specsEn: 'Hardened bolt with bushing, washer & nut — MAN / Actros' },
-      { id: 15, oem: 'SAMPA-HEX-HD', brand: 'volvo', category: 'bolts', icon: '🔧', nameAr: 'مسمار تثبيت بكتف مجلفن SAMPA', nameEn: 'SAMPA Galvanized Flange Hex Bolt', specsAr: 'مسمار تثبيت للخدمة الشاقة مقاوم للصدأ — مخزون SAMPA فوري', specsEn: 'Heavy-duty corrosion-resistant flange bolt — SAMPA stock' },
-      { id: 16, oem: 'KERB-5D-12T', brand: 'bpw', category: 'hubs', icon: '⚙️', nameAr: 'فلنجة / هوب تريلا kërb مقاس 12 طن (5D 12T)', nameEn: 'kërb 12-Ton Trailer Wheel Hub (5D 12T)', specsAr: 'هوب زهر مقوى عالي الدقة لمحاور التريلات 12 طن', specsEn: 'Precision cast-iron 12T wheel hub for trailer axles' },
-      { id: 17, oem: 'UTP-1635', brand: 'bpw', category: 'brakes', icon: '🛑', nameAr: 'رجلاش فرامل تريلات وشاحنات (UTP-1635)', nameEn: 'Heavy-Duty Brake Slack Adjuster (UTP-1635)', specsAr: 'رجلاش فرامل دقيق للخدمة الشاقة ومتوافق مع المحاور الأوروبية', specsEn: 'Precision heavy-duty slack adjuster for European axles' },
-      { id: 18, oem: 'RA-BRK-KIT', brand: 'bpw', category: 'brakes', icon: '🛑', nameAr: 'طقم إصلاح فرامل وكامة كامل (روائع الأبراج)', nameEn: 'Complete Brake & Camshaft Repair Kit', specsAr: 'يشمل جلب نحاس، بنوز تيل، بكر (رولز)، تيل تثبيت، وردات وصواميل', specsEn: 'Includes bronze bushings, brake shoe pins, rollers, clips & washers' },
-      { id: 19, oem: 'OKOC-SPIDER', brand: 'bpw', category: 'brakes', icon: '🛑', nameAr: 'عنكبوت فرامل محور تريلا (Brake Spider)', nameEn: 'Heavy-Duty Trailer Axle Brake Spider', specsAr: 'قاعدة تثبيت تيل وأحذية الفرامل زهر صلب للخدمة الشاقة', specsEn: 'Heavy-duty cast iron brake shoe mounting spider' },
-      { id: 20, oem: 'BGS352', brand: 'bpw', category: 'kingpin', icon: '🎯', nameAr: 'مسمار سحب تريلا / كينج بن BGS352 (2 بوصة)', nameEn: 'BGS352 2-Inch Trailer King Pin (D180)', specsAr: 'كينج بن 2 بوصة معتمد أوروبياً (E11 55R02) بقاعدة مسامير', specsEn: 'Certified 2-inch bolt-in king pin (E11 55R02 / D180)' },
-      { id: 21, oem: 'BBG-KP-10.9', brand: 'bpw', category: 'kingpin', icon: '🎯', nameAr: 'كينج بن BBG أسود كامل بمسامير 10.9', nameEn: 'BBG Black King Pin with 10.9 Bolts', specsAr: 'مسمار سحب مقطورات BBG مجهز بالكامل بمسامير التثبيت صلابة 10.9', specsEn: 'Complete BBG black king pin assembly with Grade 10.9 bolts' },
-      { id: 22, oem: 'HZ063', brand: 'chinese', category: 'brackets', icon: '🏗️', nameAr: 'كرسي / شيالة سستة زهر أسود (HZ063)', nameEn: 'Cast Iron Leaf Spring Hanger Bracket (HZ063)', specsAr: 'شيالة سستة زهر مقوى للشاحنات الصينية والمقطورات', specsEn: 'Heavy-duty cast iron spring hanger bracket for trucks' },
-      { id: 23, oem: 'CS-M11-A-101', brand: 'bpw', category: 'brackets', icon: '🏗️', nameAr: 'طقم كراسي دفرنس وقواعد سست (Axle Seats)', nameEn: 'Axle Seats & Spring Mounting Plates Set', specsAr: 'تشكيلة قواعد تثبيت دفرنس وسست (CS-M11-A-101 و R880-3)', specsEn: 'Assorted axle seats & spring plates (CS-M11-A-101 & R880-3)' },
-      { id: 24, oem: 'SHACKLE-PIN-HD', brand: 'man', category: 'brackets', icon: '🏗️', nameAr: 'شيالة سستة كاملة بالبنز والصواميل', nameEn: 'Complete Spring Shackle with Pin & Locknuts', specsAr: 'شيالة زهر أسود مجهزة بالبنز وصواميل التثبيت ذاتية القفل', specsEn: 'Black cast spring shackle complete with pin and locknuts' },
-      { id: 25, oem: 'A-77-3543', brand: 'bpw', category: 'brackets', icon: '🏗️', nameAr: 'طقم وردات وبلاطة تثبيت تعليق (A-77-3543)', nameEn: 'Suspension Alignment Plate & Washer Kit (A-77-3543)', specsAr: 'طقم كامل يشمل البلاطة والجلب والوردات وحلقات التثبيت', specsEn: 'Complete kit with alignment plate, bushings, washers & circlips' },
-      { id: 26, oem: '20390840', brand: 'volvo', category: 'bushings', icon: '⚫', nameAr: 'جلبة تعليق وتوازن فولفو (20390840)', nameEn: 'Volvo Suspension & Torque Rod Bushing (20390840)', specsAr: 'جلبة تعليق أصلية المواصفات لشاحنات فولفو FH / FM', specsEn: 'OEM-spec suspension bushing for Volvo FH / FM trucks' },
-      { id: 27, oem: 'AXLE-W-73.6', brand: 'bpw', category: 'hubs', icon: '⚙️', nameAr: 'وردة ضبط محور (73.6 × 42.6 × 23 مم)', nameEn: 'Axle Precision Spacer Washer (73.6x42.6x23mm)', specsAr: 'وردة تثبيت محور بمقاسات هندسية دقيقة', specsEn: 'Precision-machined axle spacer washer' },
-      { id: 28, oem: 'TRL-PLATE-KIT', brand: 'bpw', category: 'kingpin', icon: '🏗️', nameAr: 'طقم صاج وتثبيت وخطاطيف مقطورات', nameEn: 'Trailer Steel Plates, Hooks & Pins Hardware Kit', specsAr: 'ألواح وبلاطات حديد، خطاطيف، بنوز، وقفزان تثبيت للمقطورات', specsEn: 'Heavy steel mounting plates, hooks, pins & U-clamps for trailers' }
+      { id: 1, oem: '9493200302-03', brand: 'actros', category: 'springs', image: IMG.springs, fallbackImage: IMG.actros, nameAr: 'ريشة سستة خلفية مرسيدس أكتروس (رمادية)', nameEn: 'Mercedes Actros Rear Leaf Spring (Grey)', specsAr: 'ريشة سستة عالية التحمل مطابقة للمواصفات الألمانية — متوفرة بالقطعة والربطة', specsEn: 'Heavy-duty grey leaf spring blade — available per piece or bundle' },
+      { id: 2, oem: '9413250150', brand: 'actros', category: 'bushings', image: IMG.bushings, fallbackImage: IMG.actros, nameAr: 'جلبة سستة أمامية مرسيدس أكتروس', nameEn: 'Mercedes Actros Front Leaf Spring Bushing', specsAr: 'جلبة صلب معالجة حرارياً لمقاومة التآكل — أكتروس أمامي', specsEn: 'Heat-treated steel front leaf spring bushing for Actros' },
+      { id: 3, oem: '000 326 2481', brand: 'actros', category: 'bushings', image: IMG.bushings, fallbackImage: IMG.actros, nameAr: 'جلبة عمود توازن مرسيدس أكتروس', nameEn: 'Mercedes Actros Stabilizer Bar Bushing', specsAr: 'مطاط صناعي مقوى لامتصاص الصدمات والاهتزازات', specsEn: 'Reinforced industrial rubber stabilizer bushing' },
+      { id: 4, oem: '000 323 7985', brand: 'actros', category: 'bushings', image: IMG.bushings, fallbackImage: IMG.actros, nameAr: 'جلبة مساعد وتعليق مرسيدس أكتروس', nameEn: 'Mercedes Actros Suspension & Shock Bushing', specsAr: 'جلبة تعليق أكتروس متوفرة مع فئة 000 323 7985/S و 000 323 8185', specsEn: 'Heavy-duty suspension bushing (also fits 000 323 7985/S)' },
+      { id: 5, oem: '942 317 1812', brand: 'actros', category: 'bushings', image: IMG.bushings, fallbackImage: IMG.actros, nameAr: 'جلبة كابينة / تعليق مرسيدس', nameEn: 'Mercedes Cab / Suspension Bushing', specsAr: 'معدن ومطاط مقوى للخدمة الشاقة على الطرق الوعرة', specsEn: 'Bonded steel-and-rubber bushing for heavy-duty service' },
+      { id: 6, oem: 'SY412D-A6', brand: 'chinese', category: 'springs', image: IMG.springs, fallbackImage: IMG.chinese, nameAr: 'ريشة سستة خلفية شاحنات صيني تراك / ساني', nameEn: 'SANY / Chinese Truck Rear Leaf Spring', specsAr: 'ريشة خلفية رئيسية مخصصة لشاحنات ساني والصيني تراك', specsEn: 'Heavy-duty rear leaf spring for SANY & Chinese trucks' },
+      { id: 7, oem: '500-432-1', brand: 'chinese', category: 'springs', image: IMG.springs, fallbackImage: IMG.chinese, nameAr: 'ريشة سستة سوداء رقم 1 (ربطات مستودع)', nameEn: 'Black Leaf Spring #1 (Warehouse Bundles)', specsAr: 'سست سوداء مقوسة مطلية ضد الصدأ — متوفرة بكميات فورية', specsEn: 'Anti-rust coated curved black leaf springs — bulk stock ready' },
+      { id: 8, oem: '500-432-2', brand: 'chinese', category: 'springs', image: IMG.springs, fallbackImage: IMG.chinese, nameAr: 'ريشة سستة سوداء رقم 2', nameEn: 'Black Leaf Spring #2', specsAr: 'الريشة الثانية الداعمة لطقم السست الخلفية', specsEn: 'Secondary support leaf spring blade' },
+      { id: 9, oem: '89-707-32240-01', brand: 'isuzu', category: 'springs', image: IMG.springs, fallbackImage: IMG.isuzu, nameAr: 'ريشة سستة رئيسية بالعين — إيسوزو', nameEn: 'Isuzu Main Leaf Spring with Eye', specsAr: 'ريشة رئيسية بالعيون للشاحنات اليابانية وإيسوزو — رقم 01', specsEn: 'Main leaf spring with rolled eyes for Isuzu trucks (#01)' },
+      { id: 10, oem: '89-707-32240-02', brand: 'isuzu', category: 'springs', image: IMG.springs, fallbackImage: IMG.isuzu, nameAr: 'ريشة سستة ثانية بالعين — إيسوزو', nameEn: 'Isuzu Secondary Leaf Spring with Eye', specsAr: 'ريشة مساعدة بالعين مطابقة لرقم 02', specsEn: 'Secondary rolled-eye leaf spring (#02)' },
+      { id: 11, oem: '96-1111-235-02', brand: 'mitsubishi', category: 'springs', image: IMG.springs, fallbackImage: IMG.mitsubishi, nameAr: 'ريشة سستة شاحنات ميتسوبيشي فوسو', nameEn: 'Mitsubishi Fuso Leaf Spring', specsAr: 'صلب مرن عالي التحمل لشاحنات ميتسوبيشي والنقل المتوسط والثقيل', specsEn: 'High-tensile spring steel blade for Mitsubishi Fuso' },
+      { id: 12, oem: '303-025-1', brand: 'bpw', category: 'springs', image: IMG.springs, fallbackImage: IMG.bpw, nameAr: 'ريشة سستة تريلا ومقطورة (رمادية)', nameEn: 'Trailer Leaf Spring Blade (Grey)', specsAr: 'ريشة سستة سميكة لمحاور المقطورات والتريلات — متوفر أيضاً 303-410-1', specsEn: 'Thick trailer axle leaf spring (303-410-1 also available)' },
+      { id: 13, oem: 'Z-UBOLT-10.9', brand: 'actros', category: 'bolts', image: IMG.bolts, fallbackImage: IMG.actros, nameAr: 'قفزان ومسامير سست علامة Z (صلابة 10.9)', nameEn: 'Z-Brand Leaf Spring U-Bolts (Grade 10.9)', specsAr: 'قفزان أصلية بعلامة Z صلابة 10.9 لجميع الشاحنات والمقطورات', specsEn: 'Signature Z-Brand Grade 10.9 U-bolts for trucks & trailers' },
+      { id: 14, oem: 'SAMPA-225x24', brand: 'man', category: 'bolts', image: IMG.bolts, fallbackImage: IMG.man, nameAr: 'طقم مسمار تعليق SAMPA (طول 225 × قطر 24 مم)', nameEn: 'SAMPA Suspension Bolt Kit (225mm x 24mm)', specsAr: 'مسمار صلب مع جلبة ووردة وصامولة — متوافق مع مان وأكتروس', specsEn: 'Hardened bolt with bushing, washer & nut — MAN / Actros' },
+      { id: 15, oem: 'SAMPA-HEX-HD', brand: 'volvo', category: 'bolts', image: IMG.bolts, fallbackImage: IMG.volvo, nameAr: 'مسمار تثبيت بكتف مجلفن SAMPA', nameEn: 'SAMPA Galvanized Flange Hex Bolt', specsAr: 'مسمار تثبيت للخدمة الشاقة مقاوم للصدأ — مخزون SAMPA فوري', specsEn: 'Heavy-duty corrosion-resistant flange bolt — SAMPA stock' },
+      { id: 16, oem: 'KERB-5D-12T', brand: 'bpw', category: 'hubs', image: IMG.hubs, fallbackImage: IMG.bpw, nameAr: 'فلنجة / هوب تريلا kërb مقاس 12 طن (5D 12T)', nameEn: 'kërb 12-Ton Trailer Wheel Hub (5D 12T)', specsAr: 'هوب زهر مقوى عالي الدقة لمحاور التريلات 12 طن', specsEn: 'Precision cast-iron 12T wheel hub for trailer axles' },
+      { id: 17, oem: 'UTP-1635', brand: 'bpw', category: 'brakes', image: IMG.brakes, fallbackImage: IMG.bpw, nameAr: 'رجلاش فرامل تريلات وشاحنات (UTP-1635)', nameEn: 'Heavy-Duty Brake Slack Adjuster (UTP-1635)', specsAr: 'رجلاش فرامل دقيق للخدمة الشاقة ومتوافق مع المحاور الأوروبية', specsEn: 'Precision heavy-duty slack adjuster for European axles' },
+      { id: 18, oem: 'RA-BRK-KIT', brand: 'bpw', category: 'brakes', image: IMG.brakes, fallbackImage: IMG.bpw, nameAr: 'طقم إصلاح فرامل وكامة كامل (روائع الأبراج)', nameEn: 'Complete Brake & Camshaft Repair Kit', specsAr: 'يشمل جلب نحاس، بنوز تيل، بكر (رولز)، تيل تثبيت، وردات وصواميل', specsEn: 'Includes bronze bushings, brake shoe pins, rollers, clips & washers' },
+      { id: 19, oem: 'OKOC-SPIDER', brand: 'bpw', category: 'brakes', image: IMG.brakes, fallbackImage: IMG.bpw, nameAr: 'عنكبوت فرامل محور تريلا (Brake Spider)', nameEn: 'Heavy-Duty Trailer Axle Brake Spider', specsAr: 'قاعدة تثبيت تيل وأحذية الفرامل زهر صلب للخدمة الشاقة', specsEn: 'Heavy-duty cast iron brake shoe mounting spider' },
+      { id: 20, oem: 'BGS352', brand: 'bpw', category: 'kingpin', image: IMG.kingpin, fallbackImage: IMG.bpw, nameAr: 'مسمار سحب تريلا / كينج بن BGS352 (2 بوصة)', nameEn: 'BGS352 2-Inch Trailer King Pin (D180)', specsAr: 'كينج بن 2 بوصة معتمد أوروبياً (E11 55R02) بقاعدة مسامير', specsEn: 'Certified 2-inch bolt-in king pin (E11 55R02 / D180)' },
+      { id: 21, oem: 'BBG-KP-10.9', brand: 'bpw', category: 'kingpin', image: IMG.kingpin, fallbackImage: IMG.bpw, nameAr: 'كينج بن BBG أسود كامل بمسامير 10.9', nameEn: 'BBG Black King Pin with 10.9 Bolts', specsAr: 'مسمار سحب مقطورات BBG مجهز بالكامل بمسامير التثبيت صلابة 10.9', specsEn: 'Complete BBG black king pin assembly with Grade 10.9 bolts' },
+      { id: 22, oem: 'HZ063', brand: 'chinese', category: 'brackets', image: IMG.brackets, fallbackImage: IMG.chinese, nameAr: 'كرسي / شيالة سستة زهر أسود (HZ063)', nameEn: 'Cast Iron Leaf Spring Hanger Bracket (HZ063)', specsAr: 'شيالة سستة زهر مقوى للشاحنات الصينية والمقطورات', specsEn: 'Heavy-duty cast iron spring hanger bracket for trucks' },
+      { id: 23, oem: 'CS-M11-A-101', brand: 'bpw', category: 'brackets', image: IMG.brackets, fallbackImage: IMG.bpw, nameAr: 'طقم كراسي دفرنس وقواعد سست (Axle Seats)', nameEn: 'Axle Seats & Spring Mounting Plates Set', specsAr: 'تشكيلة قواعد تثبيت دفرنس وسست (CS-M11-A-101 و R880-3)', specsEn: 'Assorted axle seats & spring plates (CS-M11-A-101 & R880-3)' },
+      { id: 24, oem: 'SHACKLE-PIN-HD', brand: 'man', category: 'brackets', image: IMG.brackets, fallbackImage: IMG.man, nameAr: 'شيالة سستة كاملة بالبنز والصواميل', nameEn: 'Complete Spring Shackle with Pin & Locknuts', specsAr: 'شيالة زهر أسود مجهزة بالبنز وصواميل التثبيت ذاتية القفل', specsEn: 'Black cast spring shackle complete with pin and locknuts' },
+      { id: 25, oem: 'A-77-3543', brand: 'bpw', category: 'brackets', image: IMG.brackets, fallbackImage: IMG.bpw, nameAr: 'طقم وردات وبلاطة تثبيت تعليق (A-77-3543)', nameEn: 'Suspension Alignment Plate & Washer Kit (A-77-3543)', specsAr: 'طقم كامل يشمل البلاطة والجلب والوردات وحلقات التثبيت', specsEn: 'Complete kit with alignment plate, bushings, washers & circlips' },
+      { id: 26, oem: '20390840', brand: 'volvo', category: 'bushings', image: IMG.bushings, fallbackImage: IMG.volvo, nameAr: 'جلبة تعليق وتوازن فولفو (20390840)', nameEn: 'Volvo Suspension & Torque Rod Bushing (20390840)', specsAr: 'جلبة تعليق أصلية المواصفات لشاحنات فولفو FH / FM', specsEn: 'OEM-spec suspension bushing for Volvo FH / FM trucks' },
+      { id: 27, oem: 'AXLE-W-73.6', brand: 'bpw', category: 'hubs', image: IMG.hubs, fallbackImage: IMG.bpw, nameAr: 'وردة ضبط محور (73.6 × 42.6 × 23 مم)', nameEn: 'Axle Precision Spacer Washer (73.6x42.6x23mm)', specsAr: 'وردة تثبيت محور بمقاسات هندسية دقيقة', specsEn: 'Precision-machined axle spacer washer' },
+      { id: 28, oem: 'TRL-PLATE-KIT', brand: 'bpw', category: 'kingpin', image: IMG.kingpin, fallbackImage: IMG.bpw, nameAr: 'طقم صاج وتثبيت وخطاطيف مقطورات', nameEn: 'Trailer Steel Plates, Hooks & Pins Hardware Kit', specsAr: 'ألواح وبلاطات حديد، خطاطيف، بنوز، وقفزان تثبيت للمقطورات', specsEn: 'Heavy steel mounting plates, hooks, pins & U-clamps for trailers' }
     ];
 
     const TEXT = {
@@ -1075,7 +1134,7 @@
       localStorage.setItem('ra_settings', JSON.stringify(settings));
     }
 
-    let products = JSON.parse(localStorage.getItem('ra_products') || 'null') || [...DEFAULT_PRODUCTS];
+    let products = DEFAULT_PRODUCTS;
     let cart = JSON.parse(localStorage.getItem('ra_cart') || '[]');
     let orders = JSON.parse(localStorage.getItem('ra_orders') || '[]');
     let selectedBrand = 'all';
@@ -1086,9 +1145,21 @@
     function saveState() {
       localStorage.setItem('ra_lang', lang);
       localStorage.setItem('ra_settings', JSON.stringify(settings));
-      localStorage.setItem('ra_products', JSON.stringify(products));
       localStorage.setItem('ra_cart', JSON.stringify(cart));
       localStorage.setItem('ra_orders', JSON.stringify(orders));
+    }
+
+    function getProductImg(p) {
+      return p.image || IMG[p.category] || IMG[p.brand] || IMG.springs;
+    }
+
+    function handleImgError(imgEl, fallbackSrc) {
+      if (fallbackSrc && imgEl.dataset.fbApplied !== '1') {
+        imgEl.dataset.fbApplied = '1';
+        imgEl.src = fallbackSrc;
+      } else {
+        imgEl.style.display = 'none';
+      }
     }
 
     function showToast(msg) {
@@ -1240,6 +1311,8 @@
         const specs = lang === 'ar' ? p.specsAr : p.specsEn;
         const brandLabel = t.brands[p.brand] || p.brand;
         const catLabel = t.cats[p.category] || p.category;
+        const imgSrc = getProductImg(p);
+        const fbSrc = (p.fallbackImage || IMG[p.brand] || IMG.springs).replace(/'/g, "\\'");
         return `
           <article class="product-card">
             <div>
@@ -1248,8 +1321,8 @@
                 <span class="cat-tag">${catLabel}</span>
               </div>
               <div class="part-visual" onclick="openQuickView(${p.id})">
-                <span class="part-icon">${p.icon || '⚙️'}</span>
-                <span class="oem-pill">OEM: ${p.oem}</span>
+                <img class="part-photo" src="${imgSrc}" alt="${name}" loading="lazy" onerror="handleImgError(this, '${fbSrc}')" />
+                <span class="oem-overlay-badge">OEM: ${p.oem}</span>
               </div>
               <h3 class="product-title" onclick="openQuickView(${p.id})">${name}</h3>
               <p class="product-specs">${specs}</p>
@@ -1272,12 +1345,14 @@
       const t = TEXT[lang];
       const name = lang === 'ar' ? p.nameAr : p.nameEn;
       const specs = lang === 'ar' ? p.specsAr : p.specsEn;
+      const imgSrc = getProductImg(p);
+      const fbSrc = (p.fallbackImage || IMG[p.brand] || IMG.springs).replace(/'/g, "\\'");
       document.getElementById('qvTitle').textContent = name;
       document.getElementById('qvBody').innerHTML = `
-        <div class="part-visual" style="margin-bottom:16px;">
-          <span class="part-icon" style="font-size:3rem;">${p.icon || '⚙️'}</span>
-          <div style="margin-top:8px;"><strong>${t.qvOem}</strong> <span class="oem-pill">${p.oem}</span></div>
+        <div class="qv-photo-wrap">
+          <img src="${imgSrc}" alt="${name}" onerror="handleImgError(this, '${fbSrc}')" />
         </div>
+        <div style="margin-bottom:12px;"><strong>${t.qvOem}</strong> <span class="oem-pill">${p.oem}</span></div>
         <p style="margin-bottom:16px;"><strong>${t.qvSpecs}</strong> ${specs}</p>
         <div class="price-note">${t.cartPriceNote}</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
@@ -1492,7 +1567,8 @@
                 <option value="hubs">الفلنجات والهوبات</option><option value="brakes">الفرامل والرجلاشات</option>
                 <option value="brackets">الكراسي والشيالات</option><option value="bushings">الجلب والمطاط</option><option value="kingpin">الكينج بن</option>
               </select>
-              <input id="npSpecsAr" placeholder="مواصفات مختصرة" style="padding:8px;border:1px solid #d1d5db;border-radius:8px;" />
+              <input id="npImage" placeholder="رابط صورة القطعة (اختياري)" dir="ltr" style="padding:8px;border:1px solid #d1d5db;border-radius:8px;" />
+              <input id="npSpecsAr" placeholder="مواصفات مختصرة" style="grid-column:1/-1;padding:8px;border:1px solid #d1d5db;border-radius:8px;" />
             </div>
             <button type="submit" class="btn-primary" style="margin-top:10px;padding:9px;">حفظ القطعة</button>
           </form>
@@ -1558,18 +1634,21 @@
       e.preventDefault();
       const newId = products.length ? Math.max(...products.map(p => p.id)) + 1 : 1;
       const specs = document.getElementById('npSpecsAr').value.trim() || 'قطعة غيار أصلية للخدمة الشاقة';
+      const catVal = document.getElementById('npCat').value;
+      const brandVal = document.getElementById('npBrand').value;
+      const customImg = document.getElementById('npImage').value.trim();
       products.unshift({
         id: newId,
         nameAr: document.getElementById('npNameAr').value.trim(),
         nameEn: document.getElementById('npNameEn').value.trim(),
         oem: document.getElementById('npOem').value.trim(),
-        brand: document.getElementById('npBrand').value,
-        category: document.getElementById('npCat').value,
-        icon: '⚙️',
+        brand: brandVal,
+        category: catVal,
+        image: customImg || IMG[catVal] || IMG[brandVal] || IMG.springs,
+        fallbackImage: IMG[brandVal] || IMG.springs,
         specsAr: specs,
         specsEn: specs
       });
-      saveState();
       renderCatalog();
       renderAdmin();
       showToast('تمت إضافة القطعة');
@@ -1577,14 +1656,12 @@
 
     function deleteProductAdmin(id) {
       products = products.filter(p => p.id !== id);
-      saveState();
       renderCatalog();
       renderAdmin();
     }
 
     function resetProductsDefault() {
       products = [...DEFAULT_PRODUCTS];
-      saveState();
       renderCatalog();
       renderAdmin();
       showToast('تمت استعادة المنتجات الافتراضية');
